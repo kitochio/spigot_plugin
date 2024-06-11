@@ -1,4 +1,4 @@
-package kitochio.matchinggameplugin.command;
+package kitochio.gameplugin.command;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
