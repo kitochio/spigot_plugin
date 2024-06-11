@@ -1,5 +1,16 @@
 ## Javaのアプリ開発の学習のために　マインクラフトのプラグインを作成しました
 
+### 設計
+1. コマンドでゲームを実行する
+ - plugin.ymlにコマンドを登録し、setExecutor()で紐づける
+2. ペア登録された複数のEntityが出現する
+ - world.getBlockAt(location).setType(Material.DIAMOND_BLOCK);でEntityを出現させる
+ - 同じ鉱石を2個出現することを複数回繰り返し、その繰り返し回数をメタデータとしてブロックに記録する
+ - setMetadata()によりメタデータを設定
+
+
+
+
 ### 機能要件
 1. コマンドでゲームを開始する
 2. Entityのペアが複数出現
