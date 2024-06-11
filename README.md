@@ -2,40 +2,38 @@
 
 ### 設計
 1. コマンドでゲームを実行すること
- - plugin.ymlにコマンドを登録し、setExecutor()で紐づける
+   - plugin.ymlにコマンドを登録し、setExecutor()で紐づける
 
 2. ペア登録された複数のEntityが出現すること
- - world.getBlockAt(location).setType(Material.DIAMOND_BLOCK);でEntityを出現させる
- - 同じ鉱石を2個出現することを複数回繰り返し、その繰り返し回数をメタデータとしてブロックに記録する
- - setMetadata()によりメタデータを設定
+   - world.getBlockAt(location).setType(Material.DIAMOND_BLOCK);でEntityを出現させる
+   - 同じ鉱石を2個出現することを複数回繰り返し、その繰り返し回数をメタデータとしてブロックに記録する
+   - setMetadata()によりメタデータを設定
 
 3. ペアのEntity同士に触れるとEntityが消滅すること
- - PlayerInteractEvent()からイベントをうけとる
- - 触れたブロックのメタデータから何回目のペアかを確認し過去一回まで保存する
- - 過去に触れたブロックの回目と現在触れたブロックの回目が同じなら消滅させる
+   - PlayerInteractEvent()からイベントを受け取る
+   - 触れたブロックのメタデータから何回目のペアかを確認し過去一回まで保存する
+   - 過去に触れたブロックの回目と現在触れたブロックの回目が同じなら消滅させる
 
 4. 制限時間を設定できること
- - runTaskTimer()で開始と終了を判別する
+   - runTaskTimer()で開始と終了を判別する
 
 5. スコアをDBに登録できること
- - MySQLサーバをDockerで構築しMyBatisで接続する
+   - MySQLサーバをDockerで構築しMyBatisで接続する
 
 6. スコアはリストで確認できること
- - MySQLサーバをDockerで構築しMyBatisで接続する
+   - MySQLサーバをDockerで構築しMyBatisで接続する
 
 7. ペアのEntityに触れるとエフェクトを再生する
- - villager_happy　と　ENTITY_PLAYER_LEVELUP　を再生する
+   - villager_happy　と　ENTITY_PLAYER_LEVELUP　を再生する
 
 8. 上空からブロックが降ってくる
- - FallingBlockクラスを使用することで落下させる
+   - FallingBlockクラスを使用することで落下させる
 
 9. ペアが揃った場合にそのブロックをアイテムとして出現させる
- - ペアが揃ったアイテム名を使用して、プレイヤー位置に該当のアイテムを出現させる
+   - ペアが揃ったアイテム名を使用して、プレイヤー位置に該当のアイテムを出現させる
 
 10. 難易度をWebアプリで変更できる
- - SpringBootを使用してWebアプリケーションを作成する
-
-
+    - SpringBootを使用してWebアプリケーションを作成する
 
 ### 機能要件
 1. コマンドでゲームを実行すること
