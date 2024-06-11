@@ -35,6 +35,9 @@
 10. 難易度をWebアプリで変更できる
     - SpringBootを使用してWebアプリケーションを作成する
 
+フローチャート
+![フローチャート](https://github.com/kitochio/spigot_plugin/blob/images/FlowChart.jpg)
+
 ### 機能要件
 1. コマンドでゲームを実行すること
 2. ペア登録された複数のEntityが出現すること
