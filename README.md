@@ -63,9 +63,9 @@
 
  - game_score
 
-| id | game_name | difficulty | player_name | registered_at |
-| --- | --- | --- | --- | --- |
-| 0 | matching_game | LEVEL01 | test_user | 2024/01/01 00:00 |
+| id | game_name | difficulty | player_name | score | registered_at |
+| --- | --- | --- | --- | --- | --- |
+| 0 | matching_game | LEVEL01 | test_user | 100 | 2024/01/01 00:00 |
 
 
 ### 意識したポイント
