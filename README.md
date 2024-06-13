@@ -42,30 +42,30 @@
 ![システム概要](https://github.com/kitochio/spigot_plugin/blob/images/SystemOverview.jpg)
 
 ### DB
- - game_config
+ - matchinggame_config
 
 | id | game_time | difficulty |
 | ---- | ---- | ---- |
-| 0 | 30 | LEVEL01 |
-| 1 | 60 | LEVEL02 |
-| 2 | 40 | LEVEL03 |
+| 1 | 30 | LEVEL01 |
+| 2 | 60 | LEVEL02 |
+| 3 | 40 | LEVEL03 |
 
- - spawn_Block
+ - spawn_block
 
 | id | difficulty | block_name | point |
 | --- | --- | --- | --- |
-| 0 | LEVEL01 | iron_block | 10 |
-| 1 | LEVEL02 | iron_block | 10 |
-| 2 | LEVEL02 | gold_block | 30 |
-| 3 | LEVEL03 | iron_block | 10 |
-| 4 | LEVEL03 | gold_block | 30 |
-| 5 | LEVEL03 | diamond_block | 50 |
+| 1 | LEVEL01 | iron_block | 10 |
+| 2 | LEVEL02 | iron_block | 10 |
+| 3 | LEVEL02 | gold_block | 30 |
+| 4 | LEVEL03 | iron_block | 10 |
+| 5 | LEVEL03 | gold_block | 30 |
+| 6 | LEVEL03 | diamond_block | 100 |
 
- - game_score
+ - matchinggame_score
 
-| id | game_name | difficulty | player_name | score | registered_at |
-| --- | --- | --- | --- | --- | --- |
-| 0 | matching_game | LEVEL01 | test_user | 100 | 2024/01/01 00:00 |
+| id | difficulty | player_name | score | registered_at |
+| --- | --- | --- | --- | --- |
+| 1 | LEVEL01 | test_user | 100 | 2024-01-01 00:00:00 |
 
 
 ### 意識したポイント
