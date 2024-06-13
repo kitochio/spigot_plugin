@@ -35,11 +35,38 @@
 10. 難易度をWebアプリで変更できる
     - SpringBootを使用してWebアプリケーションを作成する
 
-フローチャート
+### フローチャート
 ![フローチャート](https://github.com/kitochio/spigot_plugin/blob/images/FlowChart.jpg)
 
-システム概要
+### システム概要
 ![システム概要](https://github.com/kitochio/spigot_plugin/blob/images/SystemOverview.jpg)
+
+### DB
+ - game_config
+
+| id | game_time | difficulty |
+| ---- | ---- | ---- |
+| 0 | 30 | LEVEL01 |
+| 1 | 60 | LEVEL02 |
+| 2 | 40 | LEVEL03 |
+
+ - spawn_Block
+
+| id | difficulty | block_name | point |
+| --- | --- | --- | --- |
+| 0 | LEVEL01 | iron_block | 10 |
+| 1 | LEVEL02 | iron_block | 10 |
+| 2 | LEVEL02 | gold_block | 30 |
+| 3 | LEVEL03 | iron_block | 10 |
+| 4 | LEVEL03 | gold_block | 30 |
+| 5 | LEVEL03 | diamond_block | 50 |
+
+ - game_score
+
+| id | game_name | difficulty | player_name | registered_at |
+| --- | --- | --- | --- | --- |
+| 0 | matching_game | LEVEL01 | test_user | 2024/01/01 00:00 |
+
 
 ### 意識したポイント
    - スケーラビリティを意識して、局所的なネーミングはなるべく避けました
