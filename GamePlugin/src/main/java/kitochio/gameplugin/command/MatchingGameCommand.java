@@ -19,7 +19,7 @@ public class MatchingGameCommand extends BaseCommand {
           player.sendMessage("ランキングを表示します");
           return false;
         }
-        case "Level" -> {
+        case "level" -> {
           switch (strings[1]) {
             case "1" -> {
               player.sendMessage("難易度をLEVEL１に設定します");
@@ -33,7 +33,7 @@ public class MatchingGameCommand extends BaseCommand {
           }
         }
         default -> {
-          player.sendMessage("設定のない引数が入力されました\nend:ゲームを終了　rank:ランキングを表示");
+          player.sendMessage("設定のない引数が入力されました\nend:ゲームを終了　rank:ランキングを表示\nlevel:難易度変更（ふたつめの引数に1〜３を入力）");
           return false;
         }
       }
