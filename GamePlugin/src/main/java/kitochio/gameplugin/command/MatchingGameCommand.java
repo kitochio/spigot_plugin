@@ -1,10 +1,19 @@
 package kitochio.gameplugin.command;
 
+import java.time.format.DateTimeFormatter;
+import java.util.List;
+import kitochio.gameplugin.MatchingGameData;
+import kitochio.gameplugin.mapper.data.MatchingGameScore;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+/**
+ * ペアとなるブロックを探して触れて、ポイントを獲得するミニゲームを起動するコマンドです
+ */
 public class MatchingGameCommand extends BaseCommand {
+
+  private final MatchingGameData matchingGameData = new MatchingGameData();
 
   @Override
   protected boolean onExecutePlayerCommand(Player player, Command command, String s, String[] strings) {
@@ -17,6 +26,7 @@ public class MatchingGameCommand extends BaseCommand {
         }
         case "rank" -> {
           player.sendMessage("ランキングを表示します");
+          sendPlayerScoreList(player);
           return false;
         }
         case "level" -> {
@@ -46,5 +56,22 @@ public class MatchingGameCommand extends BaseCommand {
   @Override
   protected boolean onExecuteNPCCommand(CommandSender commandSender, Command command, String s, String[] strings) {
     return false;
+  }
+
+  /**
+   * 現在登録されているランキングの一覧をメッセージに送る
+   *
+   * @param player コマンドを実行したプレイヤー
+   */
+  private void sendPlayerScoreList(Player player) {
+    List<MatchingGameScore> matchingGameScoreList = matchingGameData.selectListScore();
+    int i = 0;
+    for (MatchingGameScore matchingGameScore : matchingGameScoreList) {
+      i++;
+      player.sendMessage(i + "位 | "
+          + matchingGameScore.getPlayerName() + " | "
+          + matchingGameScore.getScore() + " | "
+          + matchingGameScore.getRegisteredAt().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
+    }
   }
 }
