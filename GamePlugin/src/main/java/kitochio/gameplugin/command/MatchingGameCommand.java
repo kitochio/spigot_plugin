@@ -3,6 +3,8 @@ package kitochio.gameplugin.command;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import kitochio.gameplugin.MatchingGameData;
+import kitochio.gameplugin.data.MatchingGameConfig;
+import kitochio.gameplugin.mapper.data.MatchingGameDifficultyTime;
 import kitochio.gameplugin.mapper.data.MatchingGameScore;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -14,6 +16,7 @@ import org.bukkit.entity.Player;
 public class MatchingGameCommand extends BaseCommand {
 
   private final MatchingGameData matchingGameData = new MatchingGameData();
+  private final MatchingGameConfig matchingGameConfig = new MatchingGameConfig();
 
   @Override
   protected boolean onExecutePlayerCommand(Player player, Command command, String s, String[] strings) {
@@ -32,13 +35,16 @@ public class MatchingGameCommand extends BaseCommand {
         case "level" -> {
           switch (strings[1]) {
             case "1" -> {
-              player.sendMessage("難易度をLEVEL１に設定します");
+              gameConfigSetting(1);
+              gameConfigSendMessage(player);
             }
             case "2" -> {
-              player.sendMessage("難易度をLEVEL2に設定します");
+              gameConfigSetting(2);
+              gameConfigSendMessage(player);
             }
             case "3" -> {
-              player.sendMessage("難易度をLEVEL3に設定します");
+              gameConfigSetting(3);
+              gameConfigSendMessage(player);
             }
           }
         }
@@ -51,6 +57,7 @@ public class MatchingGameCommand extends BaseCommand {
     player.sendMessage("ゲームを開始します");
     return true;
   }
+
 
   //コマンドを実行したのがプレイヤー以外の場合は何もしない
   @Override
@@ -73,5 +80,26 @@ public class MatchingGameCommand extends BaseCommand {
           + matchingGameScore.getScore() + " | "
           + matchingGameScore.getRegisteredAt().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
     }
+  }
+
+  /**
+   * ゲーム設定情報をプレイヤーに通知する
+   *
+   * @param player コマンドを実行したプレイヤー
+   */
+  private void gameConfigSendMessage(Player player) {
+    player.sendMessage("難易度を" + matchingGameConfig.getDifficultyName() + "に設定します");
+    player.sendMessage("制限時間は" + matchingGameConfig.getGameTime() + "秒です");
+  }
+
+  /**
+   * 指定した難易度の設定情報をDBから取得する
+   *
+   * @param difficulty 取得したい難易度
+   */
+  private void gameConfigSetting(int difficulty) {
+    MatchingGameDifficultyTime matchingGameDifficultyTime = matchingGameData.selectDifficultyTime(difficulty);
+    matchingGameConfig.setGameTime(matchingGameDifficultyTime.getGameTime());
+    matchingGameConfig.setDifficultyName(matchingGameDifficultyTime.getDifficulty());
   }
 }
