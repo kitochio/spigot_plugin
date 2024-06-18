@@ -44,28 +44,28 @@
 ### DB
  - matchinggame_config
 
-| id | game_time | difficulty |
+| id | difficulty | game_time |
 | ---- | ---- | ---- |
-| 1 | 30 | LEVEL01 |
-| 2 | 60 | LEVEL02 |
-| 3 | 40 | LEVEL03 |
+| 1 | LEVEL01 | 30 |
+| 2 | LEVEL02 | 40 |
+| 3 | LEVEL03 | 60 |
 
  - spawn_block
 
-| id | difficulty | block_name | point |
+| id | difficulty_id | block_name | point |
 | --- | --- | --- | --- |
-| 1 | LEVEL01 | iron_block | 10 |
-| 2 | LEVEL02 | iron_block | 10 |
-| 3 | LEVEL02 | gold_block | 30 |
-| 4 | LEVEL03 | iron_block | 10 |
-| 5 | LEVEL03 | gold_block | 30 |
-| 6 | LEVEL03 | diamond_block | 100 |
+| 1 | 1 | iron_block | 10 |
+| 2 | 2 | iron_block | 10 |
+| 3 | 2 | gold_block | 30 |
+| 4 | 3 | iron_block | 10 |
+| 5 | 3 | gold_block | 30 |
+| 6 | 3 | diamond_block | 100 |
 
  - matchinggame_score
 
-| id | difficulty | player_name | score | registered_at |
+| id | difficulty_id | player_name | score | registered_at |
 | --- | --- | --- | --- | --- |
-| 1 | LEVEL01 | test_user | 100 | 2024-01-01 00:00:00 |
+| 1 | 1 | test_user | 100 | 2024-01-01 00:00:00 |
 
 
 ### 意識したポイント
