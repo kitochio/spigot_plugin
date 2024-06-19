@@ -6,6 +6,7 @@ import kitochio.gameplugin.MatchingGameData;
 import kitochio.gameplugin.data.MatchingGameConfig;
 import kitochio.gameplugin.mapper.data.MatchingGameDifficultyTime;
 import kitochio.gameplugin.mapper.data.MatchingGameScore;
+import kitochio.gameplugin.mapper.data.MatchingGameSpawnBlock;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -37,14 +38,17 @@ public class MatchingGameCommand extends BaseCommand {
             case "1" -> {
               gameConfigSetting(1);
               gameConfigSendMessage(player);
+              return false;
             }
             case "2" -> {
               gameConfigSetting(2);
               gameConfigSendMessage(player);
+              return false;
             }
             case "3" -> {
               gameConfigSetting(3);
               gameConfigSendMessage(player);
+              return false;
             }
           }
         }
@@ -90,6 +94,8 @@ public class MatchingGameCommand extends BaseCommand {
   private void gameConfigSendMessage(Player player) {
     player.sendMessage("難易度を" + matchingGameConfig.getDifficultyName() + "に設定します");
     player.sendMessage("制限時間は" + matchingGameConfig.getGameTime() + "秒です");
+    player.sendMessage("出現するブロック");
+    matchingGameConfig.getSpawnBlocks().forEach(player::sendMessage);
   }
 
   /**
@@ -101,5 +107,12 @@ public class MatchingGameCommand extends BaseCommand {
     MatchingGameDifficultyTime matchingGameDifficultyTime = matchingGameData.selectDifficultyTime(difficulty);
     matchingGameConfig.setGameTime(matchingGameDifficultyTime.getGameTime());
     matchingGameConfig.setDifficultyName(matchingGameDifficultyTime.getDifficulty());
+
+    //出現ブロックリスト取得
+    List<MatchingGameSpawnBlock> matchingGameSpawnBlockList = matchingGameData.selectMatchingGameSpawnBlock(difficulty);
+    matchingGameConfig.getSpawnBlocks().clear();
+    for (MatchingGameSpawnBlock matchingGameSpawnBlock : matchingGameSpawnBlockList) {
+      matchingGameConfig.getSpawnBlocks().add(matchingGameSpawnBlock.getBlockName());
+    }
   }
 }

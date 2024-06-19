@@ -5,6 +5,7 @@ import java.util.List;
 import kitochio.gameplugin.mapper.MatchingGameMapper;
 import kitochio.gameplugin.mapper.data.MatchingGameDifficultyTime;
 import kitochio.gameplugin.mapper.data.MatchingGameScore;
+import kitochio.gameplugin.mapper.data.MatchingGameSpawnBlock;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -40,6 +41,10 @@ public class MatchingGameData {
 
   public MatchingGameDifficultyTime selectDifficultyTime(int i) {
     return mapper.matchingGameDifficultyTime(i);
+  }
+
+  public List<MatchingGameSpawnBlock> selectMatchingGameSpawnBlock(int i) {
+    return mapper.matchingGameSpawnBlockList(i);
   }
 
 }

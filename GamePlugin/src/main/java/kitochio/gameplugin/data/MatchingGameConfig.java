@@ -16,4 +16,8 @@ public class MatchingGameConfig {
   private String difficultyName;
   private int gameTime;
   private List<String> spawnBlocks = new ArrayList<String>();
+
+  public MatchingGameConfig() {
+    spawnBlocks.add("iron_block");
+  }
 }
