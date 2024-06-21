@@ -13,7 +13,7 @@ import lombok.Setter;
 public class MatchingGameSpawnBlock {
 
   private int id;
-  private int difficulty_id;
+  private int difficultyId;
   private String blockName;
   private int point;
 }
