@@ -3,7 +3,7 @@ package kitochio.gameplugin;
 import java.io.InputStream;
 import java.util.List;
 import kitochio.gameplugin.mapper.MatchingGameMapper;
-import kitochio.gameplugin.mapper.data.MatchingGameDifficultyTime;
+import kitochio.gameplugin.mapper.data.MatchingGameDifficulty;
 import kitochio.gameplugin.mapper.data.MatchingGameScore;
 import kitochio.gameplugin.mapper.data.MatchingGameSpawnBlock;
 import org.apache.ibatis.io.Resources;
@@ -39,7 +39,7 @@ public class MatchingGameData {
     return mapper.matchingGameScoreList();
   }
 
-  public MatchingGameDifficultyTime selectDifficultyTime(int i) {
+  public MatchingGameDifficulty selectDifficultyTime(int i) {
     return mapper.matchingGameDifficultyTime(i);
   }
 

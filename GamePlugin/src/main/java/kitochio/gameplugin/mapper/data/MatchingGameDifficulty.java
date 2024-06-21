@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Setter
 @Getter
-public class MatchingGameDifficultyTime {
+public class MatchingGameDifficulty {
 
   private int id;
   private String difficulty;

@@ -4,7 +4,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 import kitochio.gameplugin.MatchingGameData;
 import kitochio.gameplugin.data.MatchingGameConfig;
-import kitochio.gameplugin.mapper.data.MatchingGameDifficultyTime;
+import kitochio.gameplugin.mapper.data.MatchingGameDifficulty;
 import kitochio.gameplugin.mapper.data.MatchingGameScore;
 import kitochio.gameplugin.mapper.data.MatchingGameSpawnBlock;
 import org.bukkit.command.Command;
@@ -104,7 +104,7 @@ public class MatchingGameCommand extends BaseCommand {
    * @param difficulty 取得したい難易度
    */
   private void gameConfigSetting(int difficulty) {
-    MatchingGameDifficultyTime matchingGameDifficultyTime = matchingGameData.selectDifficultyTime(difficulty);
+    MatchingGameDifficulty matchingGameDifficultyTime = matchingGameData.selectDifficultyTime(difficulty);
     matchingGameConfig.setGameTime(matchingGameDifficultyTime.getGameTime());
     matchingGameConfig.setDifficultyName(matchingGameDifficultyTime.getDifficulty());
 
